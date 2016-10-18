@@ -1,0 +1,212 @@
+.wid {
+  width: 1024px;
+}
+.common {
+  margin: 0 auto;
+  text-align: center;
+}
+header,
+footer {
+  background: #f8f8f8;
+  height: 176px;
+}
+header {
+  position: relative;
+}
+header div div {
+  padding-top: 50px;
+}
+header div div img {
+  float: left;
+  cursor: pointer;
+}
+header div div h2 {
+  float: left;
+  margin-top: 30px;
+  margin-left: 25px;
+  font-size: 25px;
+  font-weight: bold;
+}
+header div div h2 span {
+  padding: 0 15px;
+}
+header div div h2 a {
+  color: #000;
+}
+header div a.reg {
+  position: absolute;
+  bottom: 20px;
+  color: #3498db;
+  font-size: 16px;
+}
+footer {
+  line-height: 176px;
+}
+section {
+  background: #fff;
+  position: relative;
+}
+section .form_login {
+  position: absolute;
+  left: 50%;
+  margin-left: -392px;
+  top: 50%;
+  margin-top: -155px;
+}
+section .inp {
+  line-height: 41px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: left;
+}
+section .inp label {
+  float: left;
+  text-align: right;
+  width: 95px;
+  padding-right: 15px;
+}
+section .inp input {
+  height: 39px;
+  line-height: 39px;
+  margin-right: 10px;
+  border: 1px solid #d1dde4;
+  width: 382px;
+  text-indent: 1em;
+}
+section .inp span {
+  line-height: 41px;
+}
+section .strength {
+  overflow: hidden;
+  margin-top: 5px;
+}
+section .strength span {
+  float: left;
+  margin-right: 5px;
+  width: 124px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+}
+section .strength label {
+  height: 22px;
+  width: 95px;
+  float: left;
+}
+section .strength .pwdfirst {
+  background: #eee;
+}
+section .strength .pwdcenter {
+  background: #eee;
+}
+section .strength .pwdlast {
+  background: #eee;
+}
+section .verification input {
+  width: 245px;
+}
+section .verification button {
+  background: #3498db;
+  width: 124px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  border:none;
+  outline: none;
+}
+section .submitRegis {
+  padding-top: 90px;
+}
+section .submitRegis button {
+  width: 247px;
+  height: 40px;
+  text-align: center;
+  background: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border:none;
+  outline: none;
+}
+section .code {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin-left: -190px;
+  margin-top: -150px;
+  z-index: 99;
+  background: #fff;
+  width: 339px;
+  height: 148px;
+  padding: 55px 20px 10px 20px;
+  box-shadow: 1px 1px 10px #ccc;
+}
+section .code img.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+section .code img.yanzheng {
+  height: 39px;
+  cursor: pointer;
+}
+section .code input {
+  width: 202px;
+  height: 39px;
+  border: 1px solid #dddedc;
+  text-indent: 1em;
+  float: left;
+}
+section .code p {
+  color: #3498db;
+  text-align: left;
+  margin-top: 5px;
+}
+section .code button {
+  border-radius: 4px;
+  width: 133px;
+  height: 40px;
+  background: #3498db;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -57px;
+  cursor: pointer;
+}
+section .form_forget {
+  position: absolute;
+  margin-left: -289px;
+  margin-top: -100px;
+  left: 50%;
+  top: 50%;
+  font-size: 14px;
+}
+section .form_forget img {
+  height: 41px;
+}
+section .form_forget .forget_checkC input {
+  width: 245px;
+  float: left;
+}
+section .form_forget .forget_checkC img {
+  float: left;
+  margin-right: 10px;
+}
+section .form_forget .forget_checkC span {
+  line-height: 41px;
+  float: left;
+}
+section .resetpsw {
+  display: none;
+  position: absolute;
+  margin-left: -394px;
+  margin-top: -166px;
+  top: 50%;
+  left: 50%;
+}
+section .resetpsw .submitRegis {
+  padding-top: 60px;
+}

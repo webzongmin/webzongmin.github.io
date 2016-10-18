@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/register.css"/>
+    <title></title>
+    <body>
+    	<header id="header" class="common">
+    		<div class="wid common">
+    			<div>
+    				<img src="images/logo.png"/>
+    				<h2>学习云<span>|</span><a href="#">忘记密码</a></h2>
+    			</div>
+
+    			<a href="login.html" class="reg">登录学习云账号>></a>
+    		</div>
+    	</header>
+    	<section class='wid common'>
+    		<div id="formForget" class="form_forget">
+    			<p class="inp">
+	    			<label>手机号：</label>
+	    			<input type="text" placeholder="请输入手机号" id="phone">
+	    			<span id="tel">请输入需要找回密码的手机号</span>
+	    		</p>
+	    		<p class="inp forget_checkC">
+	    			<label>验证码：</label>
+	    			<input type="text" name="verification" id="verification" value=""placeholder="请输入验证码" />
+	    			<img src="" alt="验证码" class="yanzheng" />
+	    			<span id="getcode" style=" cursor:pointer;">看不清，换一张</span>
+	    		</p>
+	    		<p class="common submitRegis">
+	    			<button class="button">下一步</button>
+	    		</p>
+
+    		</div>
+			<div class="resetpsw" id="formforpost">
+				<p class="inp">
+	    			<label>手机号：</label>
+	    			<b id="phonePan"></b>
+	    		</p>
+	    		<p class="inp verification">
+	    			<label>短信验证码：</label>
+	    			<input type="text" id="notepsw"/>
+	    			<button id="getMsgCode" value="one">点击获取</button>
+	    			<span id="phonecode">免费获取手机验证码</span>
+	    		</p>
+				<p class="inp">
+	    			<label>新密码：</label>
+	    			<input type="password" placeholder="请输入新密码" id="registerPwd" onKeyUp="pwStrength(this.value)" onBlur="pwStrength(this.value)"/>
+	    			<span  id="pwdtishi">6-16，英文（区分大小写）、数字或常用符号</span>
+	    		</p>
+	    		<p class="inp strength">
+	    			<label></label>
+					<span class="pwdfirst" id='strength_L'>弱</span>
+					<span class="pwdcenter" id="strength_M">中</span>
+					<span class="pwdlast" id="strength_H">强</span>
+	    		</p>
+	    		<p class="inp ">
+	    			<label>确认新密码</label>
+					<input id="registerPwd_2" type="password" />
+					<span>两次密码不一致</span>
+	    		</p>
+	    		<p class="common submitRegis">
+	    			<button id="resetPwd">重置密码</button>
+	    		</p>
+			</div>
+    	</section>
+    	<footer id="footer" class="common">
+    		Copyright © 2005-2016 广西英腾教育科技股份有限公司 备案信息：桂ICP备09009842号
+    	</footer>
+    </body>
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+   	<script src="js/forgetPwd.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

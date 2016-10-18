@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/register.css"/>
+    <title>注册</title>
+    <body>
+    	<header id="header" class="common">
+    		<div class="wid common">
+    			<div>
+    				<img src="images/logo.png"/>
+    				<h2>学习云<span>|</span><a href="#">注册账号</a></h2>
+    			</div>
+    			<a href="login.html" class="reg">登录学习云账号>></a>
+    		</div>
+    	</header>
+    	<section class='wid common' style="height:410px">
+    		<div id="formLogin" class="form_login">
+    			<p class="inp">
+	    			<label>手机号：</label>
+	    			<input type="text" placeholder="请输入手机号" id="phone"/>
+	    			<span id="tip">注册成功后即可使用手机号码登录</span>
+	    		</p>
+	    		<p class="inp">
+	    			<label>密码：</label>
+	    			<input type="password" placeholder="请输入新密码" id="pswregister" onKeyUp="pwStrength(this.value)" onBlur="pwStrength(this.value)"/>
+	    			<span id="pwdTip">6-16，英文（区分大小写）、数字或常用符号</span>
+	    		</p>
+	    		<p class="inp strength">
+	    			<label></label>
+					<span class="pwdfirst" id='strength_L'>弱</span>
+					<span class="pwdcenter" id="strength_M">中</span>
+					<span class="pwdlast" id="strength_H">强</span>
+	    		</p>
+	    		<p class="inp verification">
+	    			<label>短信验证码：</label>
+	    			<input type="text" id="txtpwd"/>
+	    			<button id="getcode">点击获取</button>
+	    			<span id="phonecode">免费获取手机验证码</span>
+	    		</p>
+	    		<p class="common submitRegis">
+	    			<button>立即注册</button>
+	    		</p>
+
+    		</div>
+			<div class="code">
+				<img src="images/error.png" class="close"/>
+				<input type="text" name="verification" id="verification" value=""placeholder="请输入验证码" />
+				<img src="" alt="验证码" class="yanzheng"  id="img"/>
+				<p>请输入正确的验证码</p>
+				<button>确认</button>
+			</div>
+    	</section>
+    	<footer id="footer" class="common">
+    		Copyright © 2005-2016 广西英腾教育科技股份有限公司 备案信息：桂ICP备09009842号
+    	</footer>
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/register.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+
+</html>
