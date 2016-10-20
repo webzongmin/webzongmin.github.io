@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+
+<body>
+	
+    <!--<section class="todoapp">
+        <div>
+            <header class="header" >
+                <h1>todos</h1>
+                <input class="new-todo" placeholder="请输入内容" value="">
+            </header>
+            <section class="main">
+                <input class="toggle-all" type="checkbox" checked="">
+                <ul class="todo-list">
+                    <li class="completed">
+                        <div class="view">
+                            <input class="toggle" type="checkbox" checked="">
+                            <label>多多对对对</label>
+                            <button class="destroy"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <footer class="footer">
+	            <span class="todo-count">
+	            	<strong>0</strong>
+	            	<span>条未选中</span>
+	            </span>
+            </footer>
+        </div>
+    </section>-->
+    
+    
+   <section class="todoapp" id="todoapp"></section>
+   <script type = 'text/babel'>
+   		var toDoApp = document.getElementById('todoapp');
+   		var Item = React.createClass({
+   			render:function(){
+   				return <div>
+				            <Header/>
+				            <Section/>
+				            <Footer/>
+				        </div>
+   			}
+   		});
+   		var Header = React.createClass({
+   			render:function () {
+   			    return <header className="header" >
+			                <h1>todos</h1>
+			                <input className="new-todo" placeholder="请输入内容" value="" />
+			            </header>
+   			}
+   		});
+   		var Section = React.createClass({
+   			render:function () {
+   			    return <section className="main">
+			                <input className="toggle-all" type="checkbox" checked="" />
+			                <ul className="todo-list">
+			                    <li className="completed">
+			                        <div className="view">
+			                            <input className="toggle" type="checkbox" checked="" />
+			                            <label>多多对对对</label>
+			                            <button className="destroy"></button>
+			                        </div>
+			                    </li>
+			                </ul>
+			            </section>
+   			}
+   		});
+   		var Footer = React.createClass({
+   			render:function () {
+   			    return <footer className="footer">
+				            <span className="todo-count">
+				            	<strong>0</strong>
+				            	<span>条未选中</span>
+				            </span>
+			            </footer>
+   			}
+   		})
+   		
+   		ReactDOM.render(<Item/>,toDoApp)
+   	
+   	
+   </script>
+</body>
+
+</html>

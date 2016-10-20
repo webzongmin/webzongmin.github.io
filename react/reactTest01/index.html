@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+	    table th,
+	    table td {
+	        text-align: center;
+	    }
+	</style>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+	<script src="js/pubsub.js"></script>
+
+</head>
+<body>
+	<div class="container" id="box"></div>
+	<script type='text/babel'>
+	   var data = [
+					
+					
+					{stName:"王大大",gender:"男",age:35,height:180,weigth:80,_id:0},
+					{stName:"李小龙",gender:"女",age:22,height:171,weigth:60,_id:6},
+					{stName:"AK47",gender:"男",age:26,height:175,weigth:70,_id:1},
+					{stName:"王大大",gender:"女",age:18,height:170,weigth:50,_id:3},
+					{stName:"JetSong",gender:"女",age:38,height:166,weigth:50,_id:4},
+					{stName:"李小龙",gender:"男",age:30,height:175,weigth:65,_id:5}
+				]
+		var box = document.getElementById('box');
+		var StudentInfo = React.createClass({
+			getInitialState() {
+			    return {
+			        getData:data,
+			        getSex:"all",
+			        getName:""
+			    };
+			},
+			changeSex:function (e) {
+				this.setState({getSex:e.target.value})
+			},
+			changeName:function (e) {
+				this.setState({getName:e.target.value}) 
+			},
+			componentDidMount:function () {
+				PubSub.subscribe('delData',function (evName,_id) {
+					var newArr = this.state.getData.filter(function(item) {
+					 	return item._id!=_id;
+					 });
+					 this.setState({getData:newArr})
+				}.bind(this))
+			},
+			render:function(){
+				return (
+					<div>
+						<h1>员工信息表</h1>
+						<div className="bs-example">
+				            <div className="form-group">
+				                <label>按性别筛选</label>
+				                <select className="form-control" onChange={this.changeSex}>
+				                    <option value="all">all</option>
+				                    <option value="1">男</option>
+				                    <option value="0">女</option>
+				                </select>
+				            </div>
+				            <div className="form-group">
+				                <label>按名字筛选</label>
+				                <input type="text" className="form-control" placeholder="请输入名字" onKeyUp={this.changeName}/>
+				            </div>
+				        </div>
+				        <StudentMation 
+				        getData={this.state.getData}
+				        getSex={this.state.getSex}
+				        getName={this.state.getName}
+				        />
+					</div>
+
+				)
+			}
+			
+		})
+		var StudentMation=React.createClass({
+			render:function () {
+				var getData = this.props.getData;
+				var getSex = this.props.getSex;
+				var list = [];
+				var genderAll = ["女","男",""];
+				var getName = this.props.getName;
+				getData.forEach(function (item,index) {
+					if(getSex!=="all" && getName===""){
+						if(item['gender']===genderAll[getSex]){
+							list.push(<StudentData studentList = {item} key = {index}/>)
+						}
+						return;
+					}
+					if(getName!==''){
+						if(getSex!=="all"){
+							if(item['gender']===genderAll[getSex] && item['stName']===getName){
+								list.push(<StudentData studentList = {item} key = {index}/>)
+							}
+							
+						}else{
+							if(item['stName']===getName){
+								list.push(<StudentData studentList = {item} key = {index}/>)
+							}
+							
+						}
+						return;
+
+						
+					}
+
+
+					list.push(<StudentData studentList = {item} key = {index}/>)
+
+				})
+				 return(
+				 	<div className="table-responsive">
+			            <table className="table table-bordered table-hover">
+			                <thead>
+			                    <tr>
+			                        <th>姓名</th>
+			                        <th>性别</th>
+			                        <th>年龄</th>
+			                        <th>身高（cm）</th>
+			                        <th>体重（kg）</th>
+			                        <th>操作</th>
+			                    </tr>
+			                </thead>
+			                <tbody id="tb">
+			                   {list}
+			                   
+			                </tbody>
+			                   
+			            </table>
+			        </div>	
+				 ) 
+			}
+		})
+		var StudentData = React.createClass({
+			delData:function () {
+				PubSub.publish("delData",this.props.studentList._id)
+			},
+			render:function () {
+				var item = this.props.studentList;
+				 return (
+				 	<tr>
+                        <td>{item.stName}</td>
+                        <td>{item.gender}</td>
+                        <td>{item.age}</td>
+                        <td>{item.height}</td>
+                        <td>{item.weigth}</td>
+                        <td><a href="javascript:;" onClick={this.delData}>删除</a> </td>
+                    </tr>
+				 ) 
+			}
+		})
+		ReactDOM.render(<StudentInfo/>,box)
+	</script>
+</body>
+</html>
