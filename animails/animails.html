@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/loading.js"></script>
+    <script src="js/data.js"></script>
+    <style id="style"></style>
+</head>
+
+<body>
+    <div id="animal">
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+        <div class="warp" style="display:none;"></div>
+    </div>
+    <div id="btnInit">EXPLORE THE EXHIBITION</div>
+    <div id="pgs">
+        <div id="loading"></div>
+    </div>
+    <ul id="left">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+    </ul>
+    <ul id="right">
+        <li>
+            <span>⇧</span>
+        </li>
+        <li>
+            <span></span>
+        </li>
+        <li>
+            <span>⇩</span>
+        </li>
+    </ul>
+    <script>
+    window.onload = function() {
+        var lsd = document.getElementById('left');
+        var lSpan = lsd.querySelectorAll('span');
+        var rsd = document.getElementById('right');
+        var rSpan = rsd.querySelectorAll('span');
+        var btnR = rsd.querySelectorAll('span');
+        var animal = document.getElementById('animal');
+        var animals = animal.getElementsByTagName('div');
+        var style = document.getElementById('style');
+        var btnInit = document.getElementById('btnInit');
+        var loadingImg = document.getElementById('loading');
+        var gdt = document.getElementById('pgs');
+        var num = 0;
+        var k = 0;
+        var tf = false;
+        var onoff = true;
+        changePage(data,function () {
+              addClass(data);
+        })
+        loadingImg.style.width = document.documentElement.clientWidth+'px';
+        setTimeout(function() {
+            changePage(loading, function() {
+                addClass(loading)
+                setTimeout(function() {
+                    btnInit.style.display = 'block';
+                }, 10000);
+            })
+            show();
+        }, 1000);
+        /*
+           	点击进入正常画面
+        */
+        btnInit.onclick = function() {
+            num = 0;
+            lsd.style.display = 'block';
+            rsd.style.display = 'block';
+            tf=true;
+            changePage(data, function() {
+                addClass(data);
+            })
+            btnInit.style.display = 'none';
+            gdt.style.display='none';
+        }
+        /*
+           	初始化动画
+        */
+        function show() {
+            if (!animals[num].nextElementSibling) {
+                return;
+            }
+            animals[num].style.display = 'block';
+            num++;
+            setTimeout(function() {
+                show()
+            }, 25);
+        }
+        var t = setInterval(function () {
+            if(num>=animals.length-1){
+                clearInterval(t);
+            }
+        }, 25);
+        /*
+           	首先循环遍历data数据，得到里面有多少数据
+        */
+        for (var attr in data) {
+            k++;
+        }
+        // 鼠标点击切换效果
+        btnR[2].onclick = numMore;
+        btnR[0].onclick = numLess;
+        /*
+           	重新渲染页面
+        */
+        function changePage(data2, callback) {
+            if(tf){
+                for (var i = 0; i < animals.length; i++) {
+                    animals[i].style = "";
+                }
+            }
+            document.body.style.backgroundColor = '#' + data2[num]['bg'];
+            for (var i = 0; i < lSpan.length; i++) {
+                lSpan[i].style.backgroundColor = '#' + data2[num]['bg'];
+                rSpan[i].style.backgroundColor = '#' + data2[num]['bg'];
+            }
+            callback();
+            for (var i = 0; i < animals.length; i++) {
+                if (!data2[num]['site'][i]['zIndex']) {
+                    animals[i].style.transition = '' + (300 + i * 10) + 'ms';
+                    animals[i].style.backgroundColor = data2[num]['site'][i].background;
+                    animals[i].style.webkitClipPath = data2[num]['site'][i].webkitClipPath;
+                } else {
+                    animals[i].style.transition = '' + (300 + i * 10) + 'ms';
+                    animals[i].style.backgroundColor = data2[num]['site'][i].background;
+                    animals[i].style.webkitClipPath = data2[num]['site'][i].webkitClipPath;
+                    animals[i].style.zIndex = data2[num]['site'][i].zIndex;
+                }
+            }
+        };
+        /*
+         	 添加动画效果的class名字
+        */
+        function addClass(data1) {
+            style.innerHTML = '';
+            // return;
+            for (var i = 0; i < animals.length; i++) {
+                animals[i].index = i;
+                animals[i].innerHTML = '';
+                if (data1[num]['site'][i].cl) {
+                    animals[i].className = '';
+                    animals[i].className = "warp " + data1[num]['site'][i].cl;
+                    var moveValue = "";
+                    animals[i].style.animation = data1[num]['site'][i]['clValue'];
+                    animals[i].style.webkitAnimation = data1[num]['site'][i]['clValue'];
+                    for (var k = 0; k < data1[num]['site'][i]['move' + (i * 1 + 1)].length; k++) {
+                        moveValue += data1[num]['site'][i]['move' + (i * 1 + 1)][k]['progress'] + "{-webkit-clip-path:" + data1[num]['site'][i]['move' + (i * 1 + 1)][k]['webkitClipPath'] + ";}"
+                    }
+                    style.innerHTML += "@keyframes move" + (i * 1 + 1) + "{" + moveValue + "}";
+                    
+                } else {
+                    animals[i].innerHTML = '';
+                    animals[i].className = '';
+                    animals[i].className = "warp ";
+                }
+            }
+        }
+           /*
+             	 滚轮滑动切换效果
+           */
+        var t = setInterval(function () {
+            if (tf) {
+                clearInterval(t);
+                if(onoff){
+                    myScroll(document.body, numLess, numMore);
+                    onoff = false;
+                }
+            }
+            
+        }, 16);
+        /*
+            num加减封装
+         */
+        function numMore() {
+            num++;
+            num > (k - 1) ? num = 0 : num;
+            changePage(data, function() {
+                addClass(data);
+            });
+        };
+        function numLess() {
+            num--;
+            num < 0 ? num = (k - 1) : num;
+            changePage(data, function() {
+                addClass(data);
+            });
+        }
+        /*
+         	  滚轮上下兼容性封装函数
+        */
+        function myScroll(obj, callbackUp, callbackDown) {
+            obj.onmousewheel = fn;
+            obj.addEventListener('DOMMouseScroll', fn);
+            function fn(ev) {
+                if (ev.wheelDelta > 0 || ev.detail < 0) {
+                    callbackUp();
+                    console.log('1')
+                } else {
+                    callbackDown();
+                }
+                ev.preventDefault();
+            }
+        };
+    }
+    </script>
+</body>
+</html>
