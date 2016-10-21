@@ -3,13 +3,56 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		
+		<style>
+			ul li{
+				height: 40px;
+				line-height: 40px;
+			}
+			ul li:nth-child(odd){
+				background: #f4f4f4;
+			}
+			ul li:nth-child(even){
+				
+			}
+		</style>
 	</head>
 	<body>
 		<div class="box">
 			<ul>
-				<li><a href="login/login.html">注册</a></li>
+				<li><a href="login/login.html">登陆注册</a></li>
+				<li><a href="animails/animails.html">clip-path在谷歌查看</a></li>
+				<li><a href="windows/index.html">windows桌面效果</a></li>
+				<li><a href="react/reactTest01/index.html">reactDemo</a></li>
+				<li><a href="ApplePlan/index.html">苹果计划app</a></li>
+				<li>其他文件工作软件需进入账号下载</li>
+				<li class="feng">
+					<a href="#">
+						封装效果
+						<ol style="display: none;">
+							<li><a href="shopCar/index.html">购物车/a></li>
+							<li><a href="progressBar/"></a>进度条</li>
+							<li><a href="touchEvent/touch.html">touch事件</a></li>
+							<li><a href="swipeEvent/swipe.html">swipe事件</a></li>
+							<li><a href="ProductMaturity/index.html">产品到期</a></a></li>
+							<li><a href="swiper_lunbo/chajian_lunbo.html">swiper轮播</a></li>
+							<li><a href="alert/index.html">弹出框</a></li>
+						</ol>
+					</a>
+				</li>
+
+				
 			</ul>
 		</div>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".feng").on("click",function(){
+					$("ol").show();
+				});
+				$("ol").mouseleave(function(){
+					$("ol").hide();
+				})
+			})
+		</script>
 	</body>
 </html>
