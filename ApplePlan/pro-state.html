@@ -46,6 +46,7 @@
 				</div>
 			</header>
 			<section >
+				
 				<div class="tab">
 					 <div class="nav">
 				      	<a href="index.html">计划概况</a>
@@ -69,13 +70,13 @@
 						</ul>
 					</div>
 					<div class="details">
-						<h2>查看详情</h2>
+						<h2 class="see">查看详情</h2>
 					</div>
 				</div>
 				<div class="omit">
 					...
 				</div>
-				<div class="tab-details">
+				<div class="tab-details1" style="display: none;">
 					<div class="tab-vr">
 						<h1>示例：</h1>
 						<ul class="vr-ul">
@@ -97,10 +98,20 @@
 			<footer>
 				<ul class="foot">
 					<li>低调分享</li>
-					<li>参与一下</li>
+					<li class="tran">参与一下</li>
 				</ul>
 			</footer>
+			
 		</div>
+		
 		<script src="js/index.js"></script>
+		<script>
+			$(".see").on("click",function(){
+				$(".tab-details1").show();
+			})
+			$(".tran").on("click",function(){
+				window.location.href="login.html"
+			})
+		</script>
 	</body>
 </html>

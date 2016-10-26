@@ -56,7 +56,7 @@
 				</div>
 			<div class="list-wrap">
 				<div class="tab-list2 list">
-					<div class="list-head">
+					<div class="list-head" style="margin-top: -0.2rem;">
 						我的参与
 					</div>
 					<div class="list-cont">
@@ -126,11 +126,101 @@
 			</section>
 			<footer>
 				<ul class="foot">
-					<li>低调分享</li>
-					<li>参与一下</li>
+					<li class="share">低调分享</li>
+					<li class="tran">参与一下</li>
 				</ul>
 			</footer>
+			<div class="hide" style="display: none;">
+				<div class="black"></div>
+				<div class="address">
+					<h1 class="title">填写信息<span>X</span></h1>
+					<ul class="ifo">
+						<li><span>姓名</span><input type="text" placeholder="输入姓名" / style="outline:none"></li>
+						<li><span>电话</span> <input type="text" placeholder="输入电话" /></li>
+						<li><span>详细地址</span><input type="text" placeholder="输入详细地址"/></li>
+					</ul>
+					<div class="sure">确认并转发</div>
+				</div>
+			</div>
+			<div class="lowShare" style="display: none;">
+				<div class="share-black"></div>
+				<div class="share-address">
+					<div class="share-icon">
+						<dl>
+							<dt><img src="img/qq_03.png" alt="" /></dt>
+							<dd>QQ</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/tengxun_05.png" alt="" /></dt>
+							<dd>QQ空间</dd>
+						</dl>
+						
+						<dl>
+							<dt><img src="img/tengxun_07.png" alt="" /></dt>
+							<dd>微博</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/tengxun_09.png" alt="" /></dt>
+							<dd>腾讯微博</dd>
+						</dl>
+						
+					</div>
+					<div class="cancel">取&nbsp;&nbsp;消</div>
+					
+				</div>
+			</div>
+			<div class="lowSharePc" style="display: none;">
+				<div class="share-black"></div>
+				<div class="share-address">
+					<div class="share-icon">
+						<dl>
+							<dt><img src="img/qq_03.png" alt="" /></dt>
+							<dd>QQ</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/peng_03.png" alt="" /></dt>
+							<dd>微信</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/peng_05.png" alt="" /></dt>
+							<dd>朋友圈</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/tengxun_05.png" alt="" /></dt>
+							<dd>QQ空间</dd>
+						</dl>
+					</div>
+					<div class="cancel">取&nbsp;&nbsp;消</div>
+					
+				</div>
+			</div>
 		</div>
 		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".btn").on("click",function(){
+					$(".hide").show();
+				})
+				$(".sure").on("click",function(){
+					$(".hide").hide();
+				})
+				$(".tran").on("click",function(){
+					window.location.href="login.html"
+				})
+				$(".share").on("click",function(){
+					$(".lowShare").show();
+					if(navigator.appVersion.split("MicroMessenger/").length > 1){
+						$(".lowShare").show();
+					}else{
+						$(".lowSharePc").show();
+					}
+				})
+				$(".cancel").on("click",function(){
+					$(".lowShare").hide();
+					$(".lowSharePc").hide();
+				})
+			})
+			
+		</script>
 	</body>
 </html>

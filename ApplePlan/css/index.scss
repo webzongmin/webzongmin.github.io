@@ -12,6 +12,12 @@ font-family: "pingFangSC" ! important;
     margin: 0;
     padding: 0;
 }
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 .head{
     text-align: center;
     line-height: 0.45rem;
@@ -590,6 +596,12 @@ section{
        
    }
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1500;
+   }
 .foot{
     display: -webkit-box;
     font-size: 0.15rem;
@@ -608,4 +620,133 @@ section{
        background: url(../img/bg1_04.png);
         background-size: cover;
     }
+}
+
+
+.hide{
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 1; 
+    top: 170px; 
+    
+}
+.black{
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.address{
+   
+    background-color: #FAFAFC;
+    height: 2.55rem;
+  
+}
+.title{
+    padding: 0.8em 0 0.8em;
+    font-size: 0.12rem;
+    color: #333;
+    height: 0.39rem;
+    
+    border-bottom: 1px solid #dbdbdb ;
+   margin: 0 0.1rem;
+    text-align: center;
+}
+.ifo{
+    font-size: 0.12rem;
+    margin: 0 0.1rem;
+    li{
+        height:0.5rem;
+        line-height: 0.5rem;
+        border-bottom: 1px solid #dbdbdb ;
+        span{
+            display: inline-block;
+            width: 45%;
+            padding-left: 0.1rem;
+        }
+        input{
+            background:  #FAFAFC;
+            border: none;
+            width: 50%;
+            text-align: right;
+        }
+    }
+}
+.sure{
+    width: 40%;
+    height: 0.25rem;
+    border: 1px solid #2a91eb;
+    border-radius: 0.2rem;
+    font-size: 0.12rem;
+    text-align: center;
+    line-height: 0.25rem;
+    margin:0.2rem auto;
+    cursor: pointer;
+}
+.cont1{
+    .btn{
+        cursor: pointer;
+    }
+}
+.tran{
+    cursor: pointer;
+}
+
+.lowShare{
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 1; 
+    bottom: 0;
+    
+}
+.share-black{
+     position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.share-address{
+     background-color: #e7e7e7;
+    height: 1.57rem;
+}
+.share-icon{
+    height: 1.12rem;
+    display: -webkit-box;
+    overflow: scroll;
+    dl{
+        width: 25%;
+        padding-top: 0.25rem;
+        dt{
+            img{
+                width: 0.52rem;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        dd{
+            font-size: 0.12rem;
+            text-align: center;
+            padding-top: 0.06rem;
+        }
+    }
+}
+.cancel{
+    background: #fff;
+    height: 0.45rem;
+    font-size: 0.12rem;
+    text-align: center;
+    line-height: 0.45rem;
 }

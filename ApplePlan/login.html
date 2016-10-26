@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/setfontsize.js"></script>
+		<script src="js/AutoHovering.js"></script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<header class="box-head">
+				<img src="img/back_03.png" alt="" class="box-back"/>
+				<h1>登&nbsp;陆</h1>
+			</header>
+			<section>
+				<img src="img/btf_03.png" alt="" class="box-img"/>
+				<ul class="box-ul">
+					<li><input type="tel" placeholder="请输入手机号" class="tel"/></li>
+					<li><input type="text" placeholder="请输入验证码" class="code"/><span>获取验证码</span></li>
+				</ul>
+				<div class="box-login">登&nbsp;陆</div>
+			</section>
+				
+				
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".box-back").on("click",function(){
+					window.history.go(-1);
+				})
+				$(".box-login").on("click",function(){
+					if($(".tel").val()=="" || $(".code").val()==""){
+						alert("请输入正确的手机和验证码");
+					}else{
+						window.location.href="pay.html";
+					}
+				})
+			})
+			
+		</script>
+	</body>
+</html>
